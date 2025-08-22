@@ -1,0 +1,42 @@
+<h2>Funcionários</h2>
+
+<div *ngIf="mensagem" class="mensagem-sucesso">{{ mensagem }}</div>
+<div *ngIf="erro" class="mensagem-erro">{{ erro }}</div>
+
+<label>Departamento:
+  <select [(ngModel)]="departamentoSelecionado" (change)="selecionarDepartamento(departamentoSelecionado)">
+    <option [ngValue]="null">Todos</option>
+    <option *ngFor="let dep of departamentos" [ngValue]="dep.id">{{ dep.nome }}</option>
+  </select>
+</label>
+
+<form (ngSubmit)="salvar()" #formFunc="ngForm">
+  <input name="nome" [(ngModel)]="funcionario.nome" required placeholder="Nome do funcionário">
+  <select name="departamentoId" [(ngModel)]="funcionario.departamentoId" required>
+    <option *ngFor="let dep of departamentos" [ngValue]="dep.id">{{ dep.nome }}</option>
+  </select>
+  <button type="submit">{{ editando ? 'Atualizar' : 'Cadastrar' }}</button>
+  <button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+  <th>ID</th>
+  <th>Nome</th>
+  <th>Departamento ID</th>
+  <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let func of funcionarios">
+      <td>{{ func.id }}</td>
+      <td>{{ func.nome }}</td>
+      <td>{{ func.departamentoId }}</td>
+      <td>
+  <button class="btn-editar" (click)="editarFuncionario(func)">Editar</button>
+  <button class="btn-excluir" (click)="excluir(func.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<h2>Departamentos</h2>
+
+<div *ngIf="mensagem" class="mensagem-sucesso">{{ mensagem }}</div>
+<div *ngIf="erro" class="mensagem-erro">{{ erro }}</div>
+
+
+<form (ngSubmit)="salvar()" #formDep="ngForm">
+  <input name="nome" [(ngModel)]="departamento.nome" required placeholder="Nome do departamento">
+  <input name="sigla" [(ngModel)]="departamento.sigla" required placeholder="Sigla">
+  <button type="submit">{{ editando ? 'Atualizar' : 'Cadastrar' }}</button>
+  <button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+  <th>ID</th>
+  <th>Nome</th>
+  <th>Sigla</th>
+  <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dep of departamentos">
+      <td>{{ dep.id }}</td>
+      <td>{{ dep.nome }}</td>
+      <td>{{ dep.sigla }}</td>
+      <td>
+  <button class="btn-editar" (click)="editarDepartamento(dep)">Editar</button>
+  <button class="btn-excluir" (click)="excluir(dep.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

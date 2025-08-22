@@ -1,0 +1,139 @@
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: #f7f7fa;
+	color: #222;
+}
+
+nav {
+	background: #2d3e50;
+	padding: 16px 0 16px 24px;
+	margin-bottom: 32px;
+	box-shadow: 0 2px 8px #0001;
+}
+nav a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 500;
+	margin-right: 18px;
+	padding: 8px 16px;
+	border-radius: 4px;
+	transition: background 0.2s;
+}
+nav a.active, nav a:hover {
+	background: #4fc3f7;
+	color: #222;
+}
+
+main, .container {
+	max-width: 800px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 16px #0002;
+	padding: 32px 24px 24px 24px;
+}
+
+h2 {
+	margin-top: 0;
+	color: #1976d2;
+	font-weight: 600;
+}
+
+form {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+form input, form select {
+	padding: 8px 12px;
+	border: 1px solid #bdbdbd;
+	border-radius: 4px;
+	font-size: 1rem;
+}
+form button {
+	background: #1976d2;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 8px 16px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+form button:hover {
+	background: #1565c0;
+}
+
+.mensagem-sucesso {
+	color: #388e3c;
+	background: #e8f5e9;
+	border: 1px solid #c8e6c9;
+	padding: 8px 12px;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+.mensagem-erro {
+	color: #c62828;
+	background: #ffebee;
+	border: 1px solid #ffcdd2;
+	padding: 8px 12px;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 12px;
+	background: #fafbfc;
+	border-radius: 6px;
+	overflow: hidden;
+	box-shadow: 0 1px 4px #0001;
+}
+th, td {
+	border: 1px solid #e0e0e0;
+	padding: 10px 8px;
+	text-align: left;
+}
+th {
+	background: #e3f2fd;
+	color: #1976d2;
+	font-weight: 600;
+}
+tr:nth-child(even) {
+	background: #f5f5f5;
+}
+button {
+	margin-right: 6px;
+	border: none;
+	border-radius: 4px;
+	padding: 6px 14px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-editar {
+	background: #fffde7;
+	color: #f9a825;
+	border: 1px solid #ffe082;
+}
+.btn-editar:hover {
+	background: #fff8e1;
+	color: #ff6f00;
+	border: 1px solid #ffd54f;
+}
+.btn-excluir {
+	background: #ffebee;
+	color: #c62828;
+	border: 1px solid #ffcdd2;
+}
+.btn-excluir:hover {
+	background: #ffcdd2;
+	color: #b71c1c;
+	border: 1px solid #e57373;
+}
