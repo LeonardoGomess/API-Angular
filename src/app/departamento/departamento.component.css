@@ -1,6 +1,20 @@
-.mensagem-sucesso { color: green; margin-bottom: 10px; }
-.mensagem-erro { color: red; margin-bottom: 10px; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-th { background: #f4f4f4; }
-button { margin-right: 5px; }
+/* Component styles lean on global variables */
+.mensagem-sucesso { margin-bottom: 10px; }
+.mensagem-erro { margin-bottom: 10px; }
+.table-responsive { margin-top: 16px; }
+.table-responsive table { width: 100%; }
+.table-actions { display: flex; gap: 8px; }
+.compact { font-size: 0.95rem; }
+
+/* Layout and alignment for departamento page */
+.departamento-wrapper { max-width: 980px; margin: 0 auto; padding: 18px; }
+.form-center { display: flex; flex-direction: column; align-items: center; }
+.form-row { display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; }
+.center { text-align: center; }
+
+table.data-table thead th, table.data-table tbody td { text-align: center; }
+
+@media (max-width: 720px) {
+	.form-row { flex-direction: column; align-items: stretch; }
+	.form-row label { width: 100%; }
+}

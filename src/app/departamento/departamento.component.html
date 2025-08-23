@@ -1,34 +1,51 @@
-<h2>Departamentos</h2>
+<div class="departamento-wrapper">
+  <h2>Departamentos</h2>
 
-<div *ngIf="mensagem" class="mensagem-sucesso">{{ mensagem }}</div>
-<div *ngIf="erro" class="mensagem-erro">{{ erro }}</div>
+  <div *ngIf="mensagem" class="mensagem-sucesso">{{ mensagem }}</div>
+  <div *ngIf="erro" class="mensagem-erro">{{ erro }}</div>
 
+  <form (ngSubmit)="salvar()" #formDep="ngForm" class="form-center">
+    <div class="form-row">
+      <label class="stack" style="min-width:320px;">
+        <span class="muted">Nome do Departamento</span>
+        <input name="nome" [(ngModel)]="departamento.nome" required placeholder="Nome do departamento">
+      </label>
 
-<form (ngSubmit)="salvar()" #formDep="ngForm">
-  <input name="nome" [(ngModel)]="departamento.nome" required placeholder="Nome do departamento">
-  <input name="sigla" [(ngModel)]="departamento.sigla" required placeholder="Sigla">
-  <button type="submit">{{ editando ? 'Atualizar' : 'Cadastrar' }}</button>
-  <button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
-</form>
+      <label class="stack" style="min-width:140px;">
+        <span class="muted">Sigla</span>
+        <input name="sigla" [(ngModel)]="departamento.sigla" required placeholder="Sigla">
+      </label>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-  <th>ID</th>
-  <th>Nome</th>
-  <th>Sigla</th>
-  <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let dep of departamentos">
-      <td>{{ dep.id }}</td>
-      <td>{{ dep.nome }}</td>
-      <td>{{ dep.sigla }}</td>
-      <td>
-  <button class="btn-editar" (click)="editarDepartamento(dep)">Editar</button>
-  <button class="btn-excluir" (click)="excluir(dep.id)">Excluir</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <div class="form-row" style="justify-content:center; margin-top:12px;">
+      <button type="submit" class="btn btn-primary">{{ editando ? 'Atualizar' : 'Cadastrar' }}</button>
+      <button type="button" class="btn btn-ghost" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+    </div>
+  </form>
+
+  <div class="table-responsive" style="margin-top:18px;">
+    <table class="data-table compact">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome do Departamento</th>
+          <th>Sigla do Departamento</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dep of departamentos">
+          <td class="center">{{ dep.id }}</td>
+          <td class="center">{{ dep.nome }}</td>
+          <td class="center">{{ dep.sigla }}</td>
+          <td class="center">
+            <div class="table-actions">
+              <button class="btn btn-editar" (click)="editarDepartamento(dep)">Editar</button>
+              <button class="btn btn-excluir" (click)="excluir(dep.id)">Excluir</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

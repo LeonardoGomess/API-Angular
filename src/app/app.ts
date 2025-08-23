@@ -1,13 +1,12 @@
 
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
-import { DepartamentoComponent } from './departamento/departamento.component';
-import { FuncionarioComponent } from './funcionario/funcionario.component';
+// componentes removidos dos imports do App - utilizados via rotas
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, RouterLinkWithHref, DepartamentoComponent, FuncionarioComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, RouterLinkWithHref],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
