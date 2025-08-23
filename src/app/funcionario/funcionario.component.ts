@@ -57,8 +57,10 @@ export class FuncionarioComponent implements OnInit {
       // Enviar objeto completo, incluindo id, conforme esperado pelo backend
       const dados = {
         id: this.editando.id,
-        nome: this.funcionario.nome,
-        departamentoId: this.funcionario.departamentoId
+  nome: this.funcionario.nome,
+  departamentoId: this.funcionario.departamentoId,
+  rg: this.funcionario.rg,
+  foto: this.funcionario.foto
       };
       this.funcionarioService.editar(this.editando.id, dados).subscribe({
         next: () => {
@@ -69,7 +71,15 @@ export class FuncionarioComponent implements OnInit {
         error: () => this.erro = 'Erro ao atualizar funcionário.'
       });
     } else {
-      this.funcionarioService.cadastrar(this.funcionario).subscribe({
+      // garantir que enviamos apenas campos relevantes
+      const payload: Partial<Funcionario> = {
+        nome: this.funcionario.nome,
+        departamentoId: this.funcionario.departamentoId,
+        rg: this.funcionario.rg,
+        foto: this.funcionario.foto
+      };
+
+      this.funcionarioService.cadastrar(payload).subscribe({
         next: () => {
           this.mensagem = 'Funcionário cadastrado com sucesso!';
           this.funcionario = {};

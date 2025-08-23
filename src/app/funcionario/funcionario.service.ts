@@ -7,6 +7,8 @@ export interface Funcionario {
   id: number;
   nome: string;
   departamentoId: number;
+  rg?: string;
+  foto?: string;
   departamento?: Departamento;
 }
 
